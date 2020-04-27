@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {FaGithubAlt, FaPlus, FaSpinner} from 'react-icons/fa';
+import {FaGithub, FaPlusCircle, FaSpinner} from 'react-icons/fa';
 import {Link} from 'react-router-dom';
 
 import api from '../../services/api';
@@ -61,7 +61,7 @@ export default class Main extends Component{
         return (
             <Container>
                 <h1>
-                    <FaGithubAlt/>
+                    <FaGithub size={25}/>
                     Repositórios
                 </h1>
     
@@ -78,7 +78,7 @@ export default class Main extends Component{
                         (<FaSpinner color="FFF" size={14}/>
                         ) : (
                         
-                        <FaPlus color="FFF" size={14}/>
+                        <FaPlusCircle color="FFF" size={16}/>
                         )}
 
                         
@@ -90,6 +90,7 @@ export default class Main extends Component{
                         <li key={repository.name}>
                             <span>{repository.name}</span>
                             <Link to={`/repository/${encodeURIComponent(repository.name)}`}>Detalhes</Link>
+                            <Link to={`/issue/${encodeURIComponent(repository.name)}`}>Detalhes I</Link>
                             
                         </li>
                         //encodeURIComponent retira a / como endereço e poe caractere especial para n contar na url
